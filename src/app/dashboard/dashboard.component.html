@@ -1,0 +1,111 @@
+<app-header></app-header>
+<div class="container text-center" style="margin-top: 100px">
+  <div class="row">
+    <div class="col-md-12 col-sm-12">
+      <mat-spinner *ngIf="isLoading"></mat-spinner>
+
+      <mat-form-field
+        style="width:100%;text-align:center;"
+        class="text-white"
+        *ngIf="!isLoading"
+      >
+        <input
+          matInput
+          (keyup)="applyFilter($event.target.value)"
+          placeholder="Search an issue"
+          class="text-center"
+        />
+      </mat-form-field>
+
+      <div class="example-container mat-elevation-z8" *ngIf="!isLoading">
+        <mat-table
+          [dataSource]="dataSource"
+          style="background:#222326;"
+          matSort
+        >
+          <ng-container matColumnDef="title">
+            <mat-header-cell
+              *matHeaderCellDef
+              matTooltip="click a link to go to the details window"
+              class="text-white"
+            >
+              Title
+            </mat-header-cell>
+            <mat-cell
+              *matCellDef="let row; let i = index"
+              matTooltip="click a link to go to the details window"
+              data-label="Title"
+            >
+              <a [routerLink]="['/allIssues', i]">{{
+                row.issueTitle
+              }}</a></mat-cell
+            >
+          </ng-container>
+
+          <ng-container matColumnDef="status">
+            <mat-header-cell
+              *matHeaderCellDef
+              matTooltip="sort the table as per reporter"
+              class="text-white"
+            >
+              status
+            </mat-header-cell>
+            <mat-cell
+              *matCellDef="let row"
+              data-label="Status"
+              matTooltip="sort the table as per reporter"
+              class="text-white"
+            >
+              {{ row.issueStatus }}
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="reporter">
+            <mat-header-cell
+              *matHeaderCellDef
+              mat-sort-header
+              matTooltip="sort the table as per reporter"
+              class="text-white"
+            >
+              Reporter
+            </mat-header-cell>
+            <mat-cell
+              *matCellDef="let row"
+              data-label="Reporter"
+              matTooltip="sort the table as per reporter"
+              class="text-white"
+            >
+              {{ row.reporter }}
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="date">
+            <mat-header-cell
+              *matHeaderCellDef
+              matTooltip="sort the table as per reporter"
+              class="text-white"
+            >
+              Date
+            </mat-header-cell>
+            <mat-cell
+              *matCellDef="let row"
+              data-label="Date"
+              matTooltip="sort the table as per reporter"
+              class="text-white"
+            >
+              {{ row.issueDate }}
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
+        </mat-table>
+
+        <mat-paginator
+          style="background:#222326;color:white"
+          [pageSizeOptions]="[5, 10, 25, 100]"
+        ></mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>

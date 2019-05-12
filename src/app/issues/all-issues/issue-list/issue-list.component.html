@@ -1,0 +1,58 @@
+<a
+  style="cursor:pointer"
+  [routerLink]="[index]"
+  routerLinkActive="active"
+  class="list-group-item clearfix bg-dark"
+>
+  <div class="pull-left">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-3 col-xs-3">
+          <mat-label class="text-muted font-weight-bold">Title:</mat-label>
+        </div>
+        <div class="col-md-6 col-sm-3 col-xs-3">
+          <mat-label class="text-primary text-right">{{
+            issue?.issueTitle
+          }}</mat-label>
+        </div>
+      </div>
+    </div>
+
+    <div class="container text-center">
+      <img
+        [src]="issue?.imagePath"
+        [alt]="issue?.issueTitle"
+        class="img-responsive"
+        style="max-height:50px;margin: 1rem 0;"
+      />
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-3 col-xs-3">
+          <mat-label class="text-muted font-weight-bold"
+            >Assigned To:</mat-label
+          >
+        </div>
+        <div class="col-md-6 col-sm-3 col-xs-3">
+          <mat-label class="text-primary text-right">{{
+            issue?.issueAssignedTo
+          }}</mat-label>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-3 col-xs-3">
+          <mat-label class="text-muted font-weight-bold">Created On:</mat-label>
+        </div>
+        <div class="col-md-6 col-sm-3 col-xs-3">
+          <mat-label class="text-primary text-right">{{
+            issue?.issueDate
+          }}</mat-label>
+        </div>
+      </div>
+    </div>
+  </div>
+</a>

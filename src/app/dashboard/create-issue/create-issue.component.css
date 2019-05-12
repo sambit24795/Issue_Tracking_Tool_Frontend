@@ -1,0 +1,111 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+.form {
+  border: 2px solid grey;
+  border-radius: 20px;
+  padding: 20px;
+  background: #e8eaf6;
+}
+mat-spinner {
+  margin: auto;
+}
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: #3fb53f;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+td {
+  padding-right: 8px;
+}
+
+input[type="file"] {
+  visibility: hidden;
+}
+
+.image-preview {
+  height: 10rem;
+  margin: 1rem 0;
+}
+
+.image-preview img {
+  height: 100%;
+}
+
+::ng-deep .mat-form-field .mat-input-element {
+  color: green !important;
+}
+::ng-deep .mat-form-field .mat-form-field-label {
+  color: green !important;
+}
+::ng-deep .mat-form-field .mat-form-field-underline {
+  background-color: green !important;
+}
+::ng-deep .mat-form-field .mat-form-field-ripple {
+  background-color: green !important;
+}
+::ng-deep .mat-form-field .mat-form-field-required-marker {
+  color: green !important;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: blue !important;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: blue !important;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-required-marker {
+  color: blue !important;
+}
+::ng-deep .mat-form-field.mat-focused .mat-input-element {
+  color: blue !important;
+}
+.not-empty-select.mat-selected {
+  color: white !important;
+}
+
+.mat-select-value-text {
+  color: white !important;
+}
+
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-input-element {
+  color: green !important;
+}
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+  color: green !important;
+}
+::ng-deep
+  .mat-form-field.mat-form-field-invalid
+  .mat-form-field-label
+  .mat-form-field-required-marker {
+  color: green !important;
+}
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-ripple {
+  background-color: green !important;
+}
+.ngx-toolbar {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+}
+.ngx-editor-button {
+  background-color: #5d5e60 !important ;
+  border: 1px transparent;
+}
+.ngx-editor-grippie {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+}

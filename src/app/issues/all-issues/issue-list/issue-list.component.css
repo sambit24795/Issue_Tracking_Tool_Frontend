@@ -1,0 +1,10 @@
+mat-spinner {
+  margin: auto;
+}
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: #3fb53f;
+}
+.example-full-width {
+  width: 100%;
+}

@@ -1,0 +1,15 @@
+::ng-deep .success{
+    background: #34ba3d;
+ } 
+
+::ng-deep .delete{
+    background: #840303;
+ } 
+
+::ng-deep .warning{
+    background: #9b5f0c;
+ } 
+
+ ::ng-deep .error{
+    background:#001f51;
+ } 

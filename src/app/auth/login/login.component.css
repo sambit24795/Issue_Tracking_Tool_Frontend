@@ -1,0 +1,99 @@
+.icon-size {
+  color: grey;
+  font-size: 15rem;
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.router-link-active {
+  color: blue;
+}
+
+.example-container > * {
+  width: 100%;
+}
+.card-header {
+  border: none;
+}
+.form-margin {
+  margin: 2rem;
+}
+.btn-primary {
+  font-family: sans-serif;
+  font-size: 13px;
+  color: blue;
+  letter-spacing: 1px;
+  line-height: 15px;
+  border: 2px solid blue;
+  border-radius: 40px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+  float: right;
+  color: white;
+}
+.card {
+  background: #222326;
+  border: none;
+  color: white;
+}
+::ng-deep .mat-spinner {
+  margin: auto;
+  margin-top: 5rem;
+  stroke: blue;
+}
+body {
+  font-family: "Covered By Your Grace", cursive;
+  line-height: 1.25;
+}
+::ng-deep .mat-form-field .mat-input-element {
+  color: white;
+}
+::ng-deep .mat-form-field .mat-form-field-label {
+  color: white !important;
+}
+::ng-deep .mat-form-field .mat-form-field-underline {
+  background-color: white;
+}
+::ng-deep .mat-form-field .mat-form-field-ripple {
+  background-color: white;
+}
+::ng-deep .mat-form-field .mat-form-field-required-marker {
+  color: white;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: blue !important;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: blue;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-required-marker {
+  color: blue;
+}
+::ng-deep .mat-form-field.mat-focused .mat-input-element {
+  color: blue;
+}
+
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-input-element {
+  color: white;
+}
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+  color: white !important;
+}
+::ng-deep
+  .mat-form-field.mat-form-field-invalid
+  .mat-form-field-label
+  .mat-form-field-required-marker {
+  color: white;
+}
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-ripple {
+  background-color: white;
+}
+.container {
+  height: 100%;
+
+  justify-content: center;
+  align-items: center;
+}

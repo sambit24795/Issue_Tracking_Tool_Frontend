@@ -1,0 +1,9 @@
+.mat-spinner {
+  margin: auto;
+  margin-top: 5rem;
+}
+
+::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: blue !important;
+}

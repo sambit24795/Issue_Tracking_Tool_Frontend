@@ -1,0 +1,122 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-dark text-white">
+  <a class="navbar-brand"> </a>
+  <button
+    class="navbar-toggler "
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon text-white"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li>
+        <a
+          *ngIf="isAuthenticated"
+          routerLink="/"
+          matTooltip="Home Page"
+          routerLinkActive="active"
+          ><i class="material-icons" style="font-size:3rem;">
+            home
+          </i></a
+        >
+      </li>
+      <ul>
+        <a class="badge badge-primary ">Hi, {{ email }} </a>
+      </ul>
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+      <ul>
+        <li>
+          <a
+            *ngIf="isAuthenticated"
+            mat-button
+            routerLinkActive="router-link-active"
+            matTooltip="notifications"
+            [matMenuTriggerFor]="menu"
+            ><mat-icon
+              [matBadge]="badgeNumber"
+              matBadgeColor="warn"
+              id="addIcon"
+              >notifications</mat-icon
+            ></a
+          >
+          <a
+            *ngIf="isAuthenticated"
+            mat-button
+            routerLink="/createIssue"
+            matTooltip="Create a new issue"
+            routerLinkActive="router-link-active"
+            ><i class="material-icons" style="font-size:2rem;">
+              add
+            </i></a
+          >
+          <a
+            *ngIf="isAuthenticated"
+            mat-button
+            routerLink="/allIssues"
+            matTooltip="All Issues"
+            routerLinkActive="router-link-active"
+            ><i class="material-icons">
+              all_inbox
+            </i></a
+          >
+          <a
+            *ngIf="!isAuthenticated"
+            mat-button
+            routerLink="/auth/login"
+            routerLinkActive="router-link-active"
+            >Login</a
+          >
+          <a
+            *ngIf="!isAuthenticated"
+            mat-button
+            routerLink="/auth/signup"
+            routerLinkActive="router-link-active"
+            >Sign up</a
+          >
+
+          <a
+            *ngIf="isAuthenticated"
+            (click)="onLogout()"
+            mat-button
+            matTooltip="Logout"
+            routerLinkActive="router-link-active"
+            ><i class="material-icons" style="font-size:2rem">
+              power_settings_new
+            </i></a
+          >
+
+          <mat-menu
+            class="bg-dark text-primary"
+            #menu="matMenu"
+            [overlapTrigger]="false"
+          >
+            <div
+              mat-menu-item
+              *ngFor="let array of notificationArray; let i = index"
+              class="text-primary"
+            >
+              <i
+                class="material-icons text-danger float-right"
+                style="font-size:1rem"
+                (click)="onClose(array.notificationId)"
+                matTooltip="close the notification"
+              >
+                close
+              </i>
+              <a (click)="onClick(array.issueid)">
+                {{ array?.notification }}
+              </a>
+            </div>
+          </mat-menu>
+        </li>
+      </ul>
+    </form>
+  </div>
+</nav>

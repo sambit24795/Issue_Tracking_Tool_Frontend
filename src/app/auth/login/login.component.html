@@ -1,0 +1,82 @@
+<mat-spinner color="primary" *ngIf="isLoading"></mat-spinner>
+<div class="container mt-5" *ngIf="!isLoading">
+  <div class="row">
+    <div class="col-6">
+      <div class="row">
+        <div class="col-12 text-center">
+          <i class="material-icons icon-size">
+            spa
+          </i>
+        </div>
+      </div>
+
+      <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
+        <div class="row">
+          <div class="col-12">
+            <mat-label class="h6 text-muted">email:</mat-label>
+
+            <mat-form-field class="example-container">
+              <input
+                matInput
+                type="email"
+                name="email"
+                ngModel
+                #emailInput="ngModel"
+                required
+              />
+              <mat-error *ngIf="emailInput.invalid"
+                >Please enter a valid email</mat-error
+              >
+            </mat-form-field>
+
+            <mat-label class="h6 text-muted">password:</mat-label>
+
+            <mat-form-field class="example-container">
+              <input
+                matInput
+                type="password"
+                name="password"
+                ngModel
+                #passwordInput="ngModel"
+                required
+              />
+              <mat-error *ngIf="passwordInput.invalid"
+                >Please enter the correct password</mat-error
+              >
+            </mat-form-field>
+
+            <button type="submit" class="btn btn-primary">log in</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-6">
+      <div class="row" style="margin-top:5rem;margin-left:15rem">
+        <div class="col-6">
+          <h2 class="text-muted text-center">Not registerd yet?</h2>
+        </div>
+      </div>
+
+      <div class="row " style="margin-top:5rem;margin-left:15rem">
+        <div class="col-6">
+          <p class="h6 text-muted text-center">Sign up here!!</p>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top:5rem;margin-left:15rem">
+        <div class="col-6 text-center">
+          <a
+            routerLink="/auth/signup"
+            routerLinkActive="router-link-active"
+            style="cursor:pointer"
+          >
+            <i class="material-icons text-primary" style="font-size:3rem;">
+              arrow_forward
+            </i></a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

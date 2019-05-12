@@ -1,0 +1,148 @@
+<div class="container">
+  <div
+    class="card text-white bg-dark border-primary text-center"
+    style="width:100%"
+  >
+    <div class="card-header">
+      <div class="row ">
+        <div class="col-sm-12 ">
+          <h1 class="text-muted">{{ singleIssue?.issueTitle }}</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-title">
+      <div class="row">
+        <div
+          class="col-sm-12"
+          [innerHtml]="singleIssue?.issueDescription"
+        ></div>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <img
+        [src]="singleIssue?.imagePath"
+        [alt]="singleIssue?.issueTitle"
+        class="img-responsive text-center"
+        style="margin: 1rem 0;height: 18rem;width: 75%"
+      />
+    </div>
+    <div class="card-footer">
+      <mat-label class="text-muted">Assigned To:</mat-label>
+      <p class="text-muted font-weight-bold">
+        {{ singleIssue?.issueAssignedTo }}
+      </p>
+      <mat-label class="text-muted">status:</mat-label>
+      <p class="text-muted font-weight-bold">{{ singleIssue?.issueStatus }}</p>
+      <mat-label class="text-muted">Created Date:</mat-label>
+      <p class="text-muted font-weight-bold">{{ singleIssue?.issueDate }}</p>
+    </div>
+
+    <div class="row">
+      <div class="col-4">
+        <a
+          class="btn btn-primary  float-left"
+          matTooltip="Edit this issue"
+          [routerLink]="['/editIssue', singleIssue?.id]"
+          >Edit</a
+        >
+      </div>
+      <div class="col-4">
+        <button
+          class="btn btn-outline-primary"
+          matTooltip="Become a watcher to this issue"
+          (click)="onWatcher()"
+        >
+          Watcher
+        </button>
+      </div>
+      <div class="col-4">
+        <a
+          *ngIf="userId == singleIssue?.creator"
+          matTooltip="Delete this issue"
+          class="btn btn-danger float-right"
+          (click)="onDelete(singleIssue?.id)"
+          >Delete</a
+        >
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <p>
+          <a
+            class="btn btn-link"
+            data-toggle="collapse"
+            href="#multiCollapseExample1"
+            role="button"
+            aria-expanded="false"
+            aria-controls="multiCollapseExample1"
+            (click)="getWatchers(singleIssue?.id)"
+            >All watchers for this issue</a
+          >
+        </p>
+        <div class="row">
+          <div class="col">
+            <div class="collapse multi-collapse" id="multiCollapseExample1">
+              <div class="card card-body bg-dark text-center">
+                <ul class="list-group">
+                  <li
+                    class="list-group-item text-muted"
+                    style="background:#333842"
+                    *ngFor="let watcher of allWatchers"
+                  >
+                    {{ watcher }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label class="text-muted">Leave your comments here</label>
+            <textarea
+              class="form-control"
+              rows="4"
+              [(ngModel)]="singleComment"
+              #inputField
+            ></textarea>
+
+            <button
+              class="btn btn-outline-primary float-right"
+              [disabled]="!inputField.value"
+              (click)="onComment()"
+            >
+              comment
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngFor="let data of savedData">
+      <div class="col-4 float-right" style="width:100%">
+        <strong class="text-muted"> {{ data.email }} says:</strong>
+      </div>
+
+      <div class="col-8 float-left text-muted">
+        {{ data.comment }}
+      </div>
+    </div>
+
+    <div class="row" *ngFor="let user of commentData">
+      <div class="col-4 float-right" style="width:100%">
+        <strong class="text-muted"> {{ user.email }} says:</strong>
+      </div>
+
+      <div class="col-8 float-left text-muted">
+        {{ user.comment }}
+      </div>
+    </div>
+  </div>
+</div>

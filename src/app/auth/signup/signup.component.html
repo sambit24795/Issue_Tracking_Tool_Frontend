@@ -1,0 +1,116 @@
+<mat-spinner color="primary" *ngIf="isLoading"></mat-spinner>
+<div class="container" *ngIf="!isLoading" style="margin-top:5rem">
+  <div class="row">
+    <div class="col-6">
+      <div class="row mt-5">
+        <div class="col-6">
+          <p class=" h6 text-muted">already have an account?</p>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-6">
+          <i class="material-icons icon-size">
+            explore
+          </i>
+        </div>
+      </div>
+      <div class="row" style="margin-top:3rem;margin-left:2rem">
+        <div class="col-6 ">
+          <i
+            class="material-icons icon-size text-primary"
+            routerLink="/auth/login"
+            style="font-size:3rem;cursor:pointer;"
+          >
+            arrow_back
+          </i>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <form (submit)="onSignup(singnupForm)" #singnupForm="ngForm">
+        <div class="row">
+          <div class="col-12">
+            <mat-label class="h6 text-muted">full name:</mat-label>
+
+            <mat-form-field class="example-container" style="width:100%">
+              <input
+                matInput
+                type="text"
+                name="fullName"
+                ngModel
+                minlength="3"
+                #fullName="ngModel"
+                required
+              />
+              <mat-error *ngIf="fullName.invalid"
+                >please enter your name</mat-error
+              >
+            </mat-form-field>
+
+            <mat-label class="h6 text-muted">email:</mat-label>
+            <mat-form-field class="example-container" style="width:100%">
+              <input
+                matInput
+                type="email"
+                name="email"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                ngModel
+                #emailInput="ngModel"
+                required
+              />
+              <mat-error
+                *ngIf="
+                  emailInput.errors && (emailInput.touched || emailInput.dirty)
+                "
+                >please enter a valid email</mat-error
+              >
+            </mat-form-field>
+
+            <mat-label class="h6 text-muted">password:</mat-label>
+            <mat-form-field class="example-container" style="width:100%">
+              <input
+                matInput
+                type="password"
+                name="password"
+                ngModel
+                #password="ngModel"
+                required
+              />
+              <mat-error *ngIf="password.invalid"
+                >please enter a valid password</mat-error
+              >
+            </mat-form-field>
+
+            <mat-label class="h6 text-muted">confirm password:</mat-label>
+            <mat-form-field class="example-container" style="width:100%">
+              <input
+                matInput
+                type="password"
+                name="confirmPassword"
+                appConfirmEqualValidator="password"
+                ngModel
+                #confirmpassword="ngModel"
+                required
+              />
+              <mat-error
+                *ngIf="
+                  confirmpassword.touched && confirmpassword.errors?.required
+                "
+                >please re-enter the password</mat-error
+              >
+              <mat-error
+                *ngIf="
+                  confirmpassword.touched &&
+                  confirmpassword.errors?.notEqual &&
+                  !confirmpassword.errors?.required
+                "
+                >password does not match</mat-error
+              >
+            </mat-form-field>
+            <button type="submit" class="btn btn-success">sign up</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<div *ngIf="!isLoading">
+  <app-header></app-header>
+</div>
+
+<div class="row text-white" *ngIf="!isLoading">
+  <div class="col-md-4 col-sm-4 col-lg-4 col-xs-4">
+    <app-issue-list
+      *ngFor="let singleIssue of allIssues; let i = index"
+      [issue]="singleIssue"
+      [index]="i"
+    ></app-issue-list>
+  </div>
+  <div class="col-md-8 col-sm-8 col-lg-8 col-xs-8">
+    <router-outlet></router-outlet>
+  </div>
+</div>
